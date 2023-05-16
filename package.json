@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "http-server"
+    "build": "rm -rf public/vendor; mkdir -p public/vendor/reveal.js; cp -r node_modules/reveal.js/* public/vendor/reveal.js",
+    "start": "http-server public"
   },
-  "dependencies": {
+  "devDependencies": {
     "http-server": "^14.1.1",
     "reveal.js": "^4.5.0"
   },
