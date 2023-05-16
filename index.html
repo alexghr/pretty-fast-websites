@@ -1,0 +1,284 @@
+🖩<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Building pretty fast websites 🚀</title>
+
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+    <link
+      rel="preload"
+      href="/assets/lace-fast.webm"
+      as="video"
+      type="video/webm"
+    />
+    <link
+      rel="preload"
+      href="/assets/lace-slow.webm"
+      as="video"
+      type="video/webm"
+    />
+
+    <script type="importmap">
+      {
+        "imports": {
+          "reveal.js": "/node_modules/reveal.js/dist/reveal.esm.js",
+          "reveal.js-markdown": "/node_modules/reveal.js/plugin/markdown/markdown.esm.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import Reveal from "reveal.js";
+      import Markdown from "reveal.js-markdown";
+
+      let deck = new Reveal({
+        plugins: [Markdown],
+        // autoPlayMedia: true,
+      });
+      deck.initialize({
+        // autoPlayMedia: true
+      });
+    </script>
+
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="/black.css"
+    />
+
+    <style>
+      :root {
+        --accent: hotpink;
+      }
+
+      em {
+        color: var(--accent);
+        text-decoration: underline wavy 2px;
+      }
+
+      .hstack {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .hstack.start {
+        align-items: start;
+      }
+
+      .hstack > * {
+        flex: 1;
+      }
+
+      .files > *:first-child:not(img) {
+        min-width: 15%;
+      }
+
+      .files > * {
+        width: 4rem;
+        height: 4rem;
+        flex: 1;
+        aspect-ratio: auto;
+      }
+      img {
+        aspect-ratio: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Building <em>pretty</em>&nbsp;fast websites 🚀</h1>
+        </section>
+        <section>
+          <h2>What is a website?</h2>
+          <p class="fragment fade-up">
+            It's a collection of <em>files</em> on computer
+          </p>
+          <p class="fragment files hstack">
+            <span>Code</span>
+            <img src="/assets/files/html.svg" />
+            <img src="/assets/files/css.svg" />
+            <img src="/assets/files/js.svg" />
+          </p>
+          <p class="fragment files hstack">
+            <span>Assets</span>
+            <img src="/assets/files/jpg.svg" />
+            <img src="/assets/files/ttf.svg" />
+            <img src="/assets/files/mp4.svg" />
+          </p>
+          <p class="fragment files hstack">
+            <span>Content</span>
+            <img src="/assets/files/txt.svg" />
+            <img src="/assets/files/db.svg" />
+            <img src="/assets/files/gdocs.svg" />
+          </p>
+        </section>
+        <section>
+          <p>Take just one thing away and it could break</p>
+          <div class="fragment hstack">
+            <figure>
+              <img src="/assets/lace.png" />
+              <figcaption>Lace</figcaption>
+            </figure>
+            <figure>
+              <img src="/assets/lace-without-css.png" />
+              <figcaption>La... 💀</figcaption>
+            </figure>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h2>What is a fast website?</h2>
+          <p class="fragment">everything previously; and</p>
+          <p class="fragment">it loads quickly</p>
+          <p class="fragment">it doesn't waste bandwidth</p>
+          <p class="fragment">it runs well</p>
+        </section>
+        <section data-auto-animate>
+          <p>it loads quickly</p>
+          <p>it doesn't waste bandwidth</p>
+          <div>
+            <img src="/assets/request.svg" />
+          </div>
+        </section>
+        <section>
+          <p>How do we make this fast?</p>
+        </section>
+        <section data-auto-animate="">
+          <h2>Local files 📚</h2>
+          <div class="">
+            <p class="files hstack">
+              <span>Code</span>
+              <img src="/assets/files/html.svg" />
+              <img src="/assets/files/css.svg" />
+              <img src="/assets/files/js.svg" />
+            </p>
+            <p class="files hstack">
+              <span>Assets</span>
+              <img src="/assets/files/jpg.svg" />
+              <img src="/assets/files/ttf.svg" />
+              <img src="/assets/files/mp4.svg" />
+            </p>
+          </div>
+        </section>
+        <section data-auto-animate="">
+          <p class="files hstack">
+            <span>Code</span>
+            <img src="/assets/files/html.svg" />
+            <img src="/assets/files/css.svg" />
+            <img src="/assets/files/js.svg" />
+          </p>
+          <p>minified</p>
+          <p>tree shaken</p>
+          <p>split into chunks</p>
+        </section>
+        <section>
+          <p class="files hstack">
+            <span>Assets</span>
+            <img src="/assets/files/jpg.svg" />
+            <img src="/assets/files/ttf.svg" />
+            <img src="/assets/files/mp4.svg" />
+          </p>
+          <p>converted and resized</p>
+        </section>
+        <section>
+          <h2>Remote content 📡</h2>
+          <p>e.g. Sanity, Ditto, some far away database</p>
+          <p class="fragment">remote = can fail</p>
+          <p class="fragment">remote = it could change without notice</p>
+        </section>
+        <section>
+          <figure>
+            <figcaption>
+              <p>Generate pages ahead of time</p>
+            </figcaption>
+            <img src="/assets/lace-a.png" />
+          </figure>
+        </section>
+        <section>
+          <h2>What about that server in the 🇺🇸?</h2>
+        </section>
+        <section>
+          <p>requests to far away servers are inneficient</p>
+          <figure class="fragment">
+            <figcaption>we're adopting <em>edge computing</em></figcaption>
+            <img src="/assets/request-on-the-edge.svg" />
+          </figure>
+        </section>
+        <section>
+          <h2>A/B tests on the <em>Edge</em></h2>
+          <div class="fragment hstack">
+            <figure>
+              <img src="/assets/lace-a.png" />
+              <figcaption>A</figcaption>
+            </figure>
+            <figure>
+              <img src="/assets/lace-b.png" />
+              <figcaption>B</figcaption>
+            </figure>
+          </div>
+          <p class="fragment">both go in 🖩's 📚</p>
+        </section>
+        <section>
+          <figure>
+            <img src="/assets/request-on-the-edge-with-ab.svg" />
+            <figcaption>Choose one</figcaption>
+          </figure>
+        </section>
+        <section>
+          <h2>What about page speed? 🚀</h2>
+        </section>
+        <section>
+          <p>Everything has a cost</p>
+          <img data-id="perf" src="/assets/lace-perf.png" />
+        </section>
+        <section>
+          <img data-id="perf" src="/assets/lace-perf-a.png" />
+        </section>
+        <section>
+          <div class="hstack">
+            <figure>
+              <video
+                autoplay
+                playsinline
+                muted
+                controls
+                src="/assets/lace-fast.webm"
+              ></video>
+              <figcaption>What's fast on one device</figcaption>
+            </figure>
+            <figure>
+              <video
+                autoplay
+                playsinline
+                muted
+                controls
+                src="/assets/lace-slow.webm"
+              ></video>
+              <figcaption>Can be slow on another</figcaption>
+            </figure>
+          </div>
+        </section>
+        <section>
+          <figure>
+            <blockquote>
+              The fastest code is the code which does not run.
+            </blockquote>
+            <figcaption><cite>Robert Galanakis</cite></figcaption>
+          </figure>
+        </section>
+        <section>
+          <h2>Conclusion</h2>
+          <p class="fragment">We're leveraging the edge more</p>
+          <p class="fragment">Page speed is always on our mind</p>
+          <p class="fragment">We should better support weaker devices</p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

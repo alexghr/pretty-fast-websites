@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 200 90" fill="white">
+  <style>
+    text {
+      fill:#333;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: system-ui;
+      line-height: 0;
+    }
+    text.small {
+      font-size: 8px;
+    }
+
+    :root {
+      background-color: #fff;
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="2" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0,0 L 5,2 L 0,4 Z" fill="black"/>
+    </marker>
+    <marker id="arrowg" markerWidth="10" markerHeight="10" refX="0" refY="2" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0,0 L 5,2 L 0,4 Z" fill="green"/>
+    </marker>
+  </defs>
+
+  <text x="5" y="48">
+    🧑‍💻
+  </text>
+  <text x="2" y="60" class="small">
+    you, in London
+  </text>
+
+  <text x="60" y="38" fill="#fff">
+    🖩
+  </text>
+  <text x="48" y="20" class="small">
+    nearby
+  </text>
+
+  <text x="80" y="64" fill="#fff">
+    📚
+  </text>
+
+  <text x="100" y="20" fill="#fff">
+    🖥️
+  </text>
+  <text x="50" y="0" class="small">
+    somewhere in the US
+  </text>
+
+  <text x="152" y="0" fill="#fff">
+    📡
+  </text>
+
+  <text x="140" y="54" fill="#fff">
+    📚
+  </text>
+
+  <!-- user agent <-> middleware -->
+  <line x1="30" y1="40" x2="55" y2="32" stroke="green" marker-end="url(#arrowg)"/>
+  <line x1="60" y1="35" x2="36" y2="44" stroke="green" marker-end="url(#arrowg)"/>
+
+  <!-- middleware <-> cache -->
+  <line x1="70" y1="40" x2="80" y2="45" stroke="green" marker-end="url(#arrowg)"/>
+
+  <!-- middleware <-> origin -->
+  <line x1="75" y1="25" x2="100" y2="20" stroke="green" marker-end="url(#arrowg)"/>
+  <line x1="102" y1="25" x2="80" y2="30" stroke="green" marker-end="url(#arrowg)"/>
+
+  <!-- origin <-> remote -->
+  <line x1="125" y1="5" x2="148" y2="0" stroke="black" marker-end="url(#arrow)"/>
+  <line x1="150" y1="5" x2="130" y2="10" stroke="black" marker-end="url(#arrow)"/>
+
+  <!-- origin <-> local files -->
+  <line x1="114" y1="25" x2="136" y2="42" stroke="black" marker-end="url(#arrow)"/>
+
+</svg>
